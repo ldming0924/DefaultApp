@@ -10,12 +10,16 @@ import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 
 import com.kawakp.demingliu.defaultapp.R;
 import com.kawakp.demingliu.defaultapp.http.OkHttpHelper;
 import com.kawakp.demingliu.defaultapp.http.SpotsCallBack;
+import com.kawakp.demingliu.defaultapp.presenter.ILoginPreseenterImpl;
+import com.kawakp.demingliu.defaultapp.view.ILoginView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,14 +29,24 @@ import okhttp3.Response;
 /**
  * Created by deming.liu on 2016/9/26.
  */
-public class StartActivity extends Activity {
+public class StartActivity extends Activity implements ILoginView,View.OnClickListener{
 
     private OkHttpHelper httpHelper;
 
     private ImageView btn;
+    private EditText edt_userName;
+    private EditText edt_pwd;
+    private Button btn_login;
+    private CheckBox savaPwd;
+    private CheckBox autoLogin;
+
+    private String url;
+    private ILoginPreseenterImpl iLoginPreseenter ;
+
     int scaleTime = 0;
     boolean isFlash;
-    private Handler handler = new Handler();
+    //按钮点击动画
+/*    private Handler handler = new Handler();
     private Runnable runnable = new Runnable() {
         public void run() {
             handler.postDelayed(this, 400);
@@ -45,7 +59,7 @@ public class StartActivity extends Activity {
                 }
             }
         }
-    };
+    };*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,14 +73,15 @@ public class StartActivity extends Activity {
 
         httpHelper = OkHttpHelper.getInstance(this);
 
-        flash(true);
+       // flash(true);
+        initView();
+        url = "http://kawakp.chinclouds.com:60034/userconsle/login";
 
-
-        btn.setOnClickListener(new View.OnClickListener() {
+        /*btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                flash(false);
-                isFlash = true;
+              //  flash(false);
+              //  isFlash = true;
 
                 String url = "http://kawakp.chinclouds.com:60034/userconsle/login";
                 String userName = "jnadmin";
@@ -90,7 +105,7 @@ public class StartActivity extends Activity {
                     }
                 });
             }
-        });
+        });*/
 
       /*  new Handler().postDelayed(new Runnable() {
             @Override
@@ -102,14 +117,27 @@ public class StartActivity extends Activity {
         },2000);*/
     }
 
-    public void flash(boolean flash){
+    private void initView() {
+        edt_userName = (EditText) findViewById(R.id.editText_username);
+        edt_pwd = (EditText) findViewById(R.id.editText_password);
+        btn_login = (Button) findViewById(R.id.button_login);
+        savaPwd = (CheckBox) findViewById(R.id.checkBox_remember_password);
+        autoLogin = (CheckBox) findViewById(R.id.checkBox_auto_login);
+
+        iLoginPreseenter = new ILoginPreseenterImpl(this);
+
+        btn_login.setOnClickListener(this);
+
+    }
+
+   /* public void flash(boolean flash){
         if (flash){
             handler.removeCallbacks(runnable);
             handler.postDelayed(runnable, 400);
         }
-    }
+    }*/
 
-    private void scaleSmall(ImageView view,int time){
+ /*   private void scaleSmall(ImageView view,int time){
         ScaleAnimation sa = new ScaleAnimation(1.0f, 0.97f, 1.0f, 0.9f,
                 // 设置锚点
                 Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
@@ -130,5 +158,53 @@ public class StartActivity extends Activity {
         // 界面停留在结束状态
         sa.setFillAfter(true);
         view.startAnimation(sa);
+    }*/
+
+    @Override
+    public String getUserName() {
+        return edt_userName.getText().toString();
+    }
+
+    @Override
+    public String getPwd() {
+        return edt_pwd.getText().toString();
+    }
+
+    @Override
+    public boolean isSavaPwd() {
+        return savaPwd.isChecked();
+    }
+
+    @Override
+    public boolean isAotuLogin() {
+        return autoLogin.isChecked();
+    }
+
+    @Override
+    public void showSuccessMsg() {
+
+    }
+
+    @Override
+    public void showFailMsg(String msg) {
+        Log.i("TAG",msg);
+    }
+
+    @Override
+    public void toNextAct() {
+        startActivity(new Intent(StartActivity.this,MainActivity.class));
+        finish();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.button_login:
+                Map<String,Object> map = new HashMap<String,Object>();
+                map.put("username",edt_userName.getText().toString());
+                map.put("password",edt_pwd.getText().toString());
+                iLoginPreseenter.doLogin(StartActivity.this,url,map);
+                break;
+        }
     }
 }

@@ -19,4 +19,10 @@
         <item name="android:windowBackground">@color/window_background</item>
     </style>
 
+
+    <style name="TextStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>
