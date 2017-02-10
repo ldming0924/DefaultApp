@@ -8,33 +8,49 @@
 
     <Button
         android:id="@+id/button1"
-        android:text="aaaaaaa"
+        android:text="侧滑菜单与recyclerview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/button2"
-        android:text="bbbbbbbb"
+        android:text="仿微信底部菜单"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <Button
         android:id="@+id/button3"
-        android:text="ccccccc"
+        android:text="树形结构菜单"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <com.cjj.MaterialRefreshLayout
-        android:id="@+id/materialRefreshLayout"
-        android:layout_width="match_parent"
+
+    <Button
+        android:text="CoordinatorLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:overlay="true"
-        app:wave_show="false">
-
-
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-           />
-
-    </com.cjj.MaterialRefreshLayout>
+        android:id="@+id/button4" />
+    <Button
+        android:text="ReactFloatView悬浮菜单按钮"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button5" />
+    <Button
+        android:text="动画"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button6" />
+    <Button
+        android:text="PanningView(平移视图)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button7" />
+    <Button
+        android:text="标签"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button8" />
+    <Button
+        android:text="SpringScrollView(上下拉的view)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button9" />
 </LinearLayout>

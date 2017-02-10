@@ -1,24 +1,18 @@
 package com.kawakp.demingliu.defaultapp.activity;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -48,7 +42,7 @@ import butterknife.ButterKnife;
 /**
  * Created by deming.liu on 2016/10/10.
  */
-public class QActivity extends AppCompatActivity {
+public class SlidingMenuActivity extends AppCompatActivity {
 
     @Bind(R.id.id_toolbar)
     Toolbar mToolbar;
@@ -141,7 +135,7 @@ public class QActivity extends AppCompatActivity {
         mItems  = new ArrayList<LvMenuItem>( Arrays.asList(
                 new LvMenuItem(R.drawable.ic_launcher, "主页"),
                 new LvMenuItem(R.drawable.ic_launcher, "Messages"),
-                new LvMenuItem(R.drawable.ic_launcher, "数据统计"),
+                new LvMenuItem(R.drawable.ic_launcher, "数据统计图表"),
                 new LvMenuItem(R.drawable.ic_launcher, "Discussion"),
                 new LvMenuItem(R.drawable.ic_launcher, "Sub Item 1"),
                 new LvMenuItem(R.drawable.ic_launcher, "Sub Item 2")));
@@ -165,7 +159,7 @@ public class QActivity extends AppCompatActivity {
         mLvLeftMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(QActivity.this, position + "  "+mItems.get(position-1).name, Toast.LENGTH_SHORT).show();
+                Toast.makeText(SlidingMenuActivity.this, position + "  "+mItems.get(position-1).name, Toast.LENGTH_SHORT).show();
                 index = position -1;
                 switchFragment(fragments[position -1]);
                 //setFragment(fragments[position - 1]);

@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/DefaultApp.iml" filepath="$PROJECT_DIR$/DefaultApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/MPChartLib/MPChartLib.iml" filepath="$PROJECT_DIR$/MPChartLib/MPChartLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libary-reactfloatview/libary-reactfloatview.iml" filepath="$PROJECT_DIR$/libary-reactfloatview/libary-reactfloatview.iml" />
     </modules>
   </component>
 </project>

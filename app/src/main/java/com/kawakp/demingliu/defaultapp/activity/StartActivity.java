@@ -20,10 +20,13 @@ import com.kawakp.demingliu.defaultapp.http.OkHttpHelper;
 import com.kawakp.demingliu.defaultapp.http.SpotsCallBack;
 import com.kawakp.demingliu.defaultapp.presenter.ILoginPreseenterImpl;
 import com.kawakp.demingliu.defaultapp.view.ILoginView;
+import com.kawakp.demingliu.defaultapp.widget.panningview.PanningView;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import okhttp3.Response;
 
 /**
@@ -61,16 +64,19 @@ public class StartActivity extends Activity implements ILoginView,View.OnClickLi
         }
     };*/
 
+    @Bind(R.id.iv_login_bg)
+    PanningView m_ivLoginBg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_start);
+        setContentView(R.layout.act_login);
        // StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary));
 
-        btn = (ImageView) findViewById(R.id.btn);
+       // btn = (ImageView) findViewById(R.id.btn);
 
-
+        ButterKnife.bind(this);
         httpHelper = OkHttpHelper.getInstance(this);
 
        // flash(true);
@@ -206,5 +212,17 @@ public class StartActivity extends Activity implements ILoginView,View.OnClickLi
                 iLoginPreseenter.doLogin(StartActivity.this,url,map);
                 break;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        m_ivLoginBg.startPanning();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        m_ivLoginBg.stopPanning();
     }
 }

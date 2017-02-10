@@ -12,4 +12,15 @@
     <string name="enter_account">请输入你的账号</string>
     <string name="enter_password">请输入你的密码</string>
     <string name="login">登 录</string>
+
+    <string name="animation_2_text_1">唐僧</string>
+    <string name="animation_2_text_2">孙行者</string>
+    <string name="animation_2_text_3">猪悟能</string>
+    <string name="animation_2_text_4">沙和尚</string>
+    <string name="animation_2_instructions">选择一个动画</string>
+
+
+    <string name="gravity_left">left</string>
+    <string name="gravity_center">center</string>
+    <string name="gravity_right">right</string>
 </resources>

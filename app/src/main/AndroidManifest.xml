@@ -18,13 +18,26 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MainActivity"/>
-        <activity android:name=".activity.QActivity"
+        <activity android:name=".activity.SlidingMenuActivity"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.DesignDemo"/>
+            />
         <activity android:name=".activity.WXactivity"
             android:launchMode="singleTask"
            />
-        <activity android:name=".activity.DeviceListActivity"/>
+        <activity android:name=".activity.TreeMenuActivity"/>
+        <activity android:name=".activity.CoordinatorLayoutActivity"/>
+        <activity android:name=".activity.ReactFloatActivity"/>
+        <activity android:name=".activity.AnimaActivity"/>
+        <activity android:name=".activity.anima.TextSwitcherActivity" />
+        <activity android:name=".activity.anima.ImageSwitcherActivity" />
+        <activity android:name=".activity.anima.ViewFlipperActivity" />
+        <activity android:name=".activity.anima.VGChildrenAnimActivity" />
+        <activity android:name=".activity.anima.CanvasAnimActivity" />
+        <activity android:name=".activity.anima.KenBurnsActivity"></activity>
+        <activity android:name=".activity.TestPanningViewActivity"/>
+        <activity android:name=".activity.FlowLayoutActivity"/>
+        <activity android:name=".activity.SpringScrollViewActivity"/>
+
 
     </application>
 
