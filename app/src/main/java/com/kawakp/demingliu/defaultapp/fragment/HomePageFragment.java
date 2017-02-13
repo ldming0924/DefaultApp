@@ -182,14 +182,12 @@ public class HomePageFragment extends BaseFragment {
 
             case STATE_REFRESH:
                 adapter.clear();
-                adapter.addData(wares);
-
+                adapter.refreshData(wares);
                 recyclerView.scrollToPosition(0);
                 mRefreshLaout.finishRefresh();
                 break;
 
             case STATE_MORE:
-                //adapter.addData(adapter.getDatas().size(),wares);
                 adapter.loadMoreData(wares);
                 recyclerView.scrollToPosition(adapter.getDatas().size());
                 mRefreshLaout.finishRefreshLoadMore();

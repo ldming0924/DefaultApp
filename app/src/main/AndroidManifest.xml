@@ -20,6 +20,7 @@
         <activity android:name=".activity.MainActivity"/>
         <activity android:name=".activity.SlidingMenuActivity"
             android:launchMode="singleTask"
+            android:theme="@style/Theme.DesignDemo"
             />
         <activity android:name=".activity.WXactivity"
             android:launchMode="singleTask"
@@ -37,6 +38,8 @@
         <activity android:name=".activity.TestPanningViewActivity"/>
         <activity android:name=".activity.FlowLayoutActivity"/>
         <activity android:name=".activity.SpringScrollViewActivity"/>
+        <activity android:name=".activity.TestOkhttpActivity"/>
+        <activity android:name=".activity.ArcMenuActivity"/>
 
 
     </application>

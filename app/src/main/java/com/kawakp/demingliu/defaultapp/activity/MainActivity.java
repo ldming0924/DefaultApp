@@ -47,7 +47,7 @@ public class MainActivity extends BaseActivity {
 
     private void init() {
     }
-    @OnClick({R.id.button1,R.id.button2,R.id.button3,R.id.button4,R.id.button5,R.id.button6,R.id.button7,R.id.button8,R.id.button9})
+    @OnClick({R.id.button1,R.id.button2,R.id.button3,R.id.button4,R.id.button5,R.id.button6,R.id.button7,R.id.button8,R.id.button9,R.id.button10,R.id.button11})
     public void OnClick(View view){
         switch (view.getId()){
             case R.id.button1:
@@ -76,6 +76,12 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.button9:
                 startActivity(new Intent(MainActivity.this,SpringScrollViewActivity.class));
+                break;
+            case R.id.button10:
+                startActivity(new Intent(MainActivity.this,TestOkhttpActivity.class));
+                break;
+            case R.id.button11:
+                startActivity(new Intent(MainActivity.this,ArcMenuActivity.class));
                 break;
         }
     }
